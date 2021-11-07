@@ -24,7 +24,21 @@ const addNote = function(title, body){
 }
 
 const removeNote = function(title){
-    console.log('removing a note')
+    const notes = loadNotes()
+    const notesToKeep = notes.filter(function(note){
+        return note.title !== title
+    })
+
+    if(notesToKeep.length !== notes.length){
+        notes.push({
+            title: notesToKeep.title,
+            body: notesToKeep.body
+        })
+        saveNotes(notes)
+        console.log('Note Removed')
+    }else{
+        console.log('This note does not exist')
+    }
 }
 
 

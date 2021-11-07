@@ -62,7 +62,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function(){
+    handler: function(argv){
         notes.removeNote(argv.title)
     }
 })
